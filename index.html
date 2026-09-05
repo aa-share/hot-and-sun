@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hot &amp; Sun — raport 05.09.2026 05:01</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --tlo: #fbf7f0;
+  --karta: #ffffff;
+  --obwodka: #e8e0d4;
+  --tekst: #22282f;
+  --tekst-slaby: #6d7681;
+  --akcent: #d97a2b;
+  --akcent-tlo: #fdf1e4;
+  --morze: #1f7a8c;
+  --spadek: #1a7a52;
+  --wzrost: #b23a48;
+  --cien: 0 1px 2px rgba(34, 40, 47, .06), 0 8px 24px rgba(34, 40, 47, .05);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tlo: #11161d;
+    --karta: #1a212a;
+    --obwodka: #2b3542;
+    --tekst: #e7eaee;
+    --tekst-slaby: #97a1ad;
+    --akcent: #f0a15c;
+    --akcent-tlo: #2a2118;
+    --morze: #6ec4d4;
+    --spadek: #56c98d;
+    --wzrost: #f08a97;
+    --cien: none;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0 1rem 4rem;
+  background: var(--tlo);
+  color: var(--tekst);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+.strona { max-width: 60rem; margin: 0 auto; }
+a { color: var(--morze); }
+
+header { padding: 2.5rem 0 1.5rem; }
+.marka {
+  font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--akcent);
+}
+h1 { margin: .3rem 0 .5rem; font-size: 1.85rem; line-height: 1.2; letter-spacing: -.02em; }
+.kiedy { margin: 0; color: var(--tekst-slaby); }
+.kryteria {
+  margin: .75rem 0 0; padding: .5rem .75rem; display: inline-block;
+  background: var(--akcent-tlo); border-radius: .5rem;
+  font-size: .85rem; color: var(--tekst);
+}
+
+.kafle {
+  display: grid; gap: .75rem; margin: 1.5rem 0 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+}
+.kafel {
+  background: var(--karta); border: 1px solid var(--obwodka); border-radius: .75rem;
+  padding: .9rem 1rem; box-shadow: var(--cien);
+}
+.kafel .liczba { display: block; font-size: 1.4rem; font-weight: 700; letter-spacing: -.02em; }
+.kafel .etykieta {
+  display: block; margin-top: .15rem; font-size: .75rem; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--tekst-slaby);
+}
+
+.hotel {
+  background: var(--karta); border: 1px solid var(--obwodka); border-radius: .9rem;
+  box-shadow: var(--cien); margin-bottom: 1.25rem; overflow: hidden;
+}
+.hotel-naglowek {
+  display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: baseline;
+  justify-content: space-between; padding: 1rem 1.15rem .75rem;
+  border-bottom: 1px solid var(--obwodka);
+}
+.hotel-naglowek h2 { margin: 0; font-size: 1.1rem; letter-spacing: -.01em; }
+.hotel-meta { margin: .2rem 0 0; font-size: .8rem; color: var(--tekst-slaby); }
+.hotel-cena { font-size: 1.35rem; font-weight: 700; color: var(--akcent); white-space: nowrap; }
+.hotel-cena small { font-size: .7rem; font-weight: 500; color: var(--tekst-slaby); }
+
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+th {
+  text-align: left; padding: .5rem 1.15rem; font-size: .7rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .07em; color: var(--tekst-slaby);
+  border-bottom: 1px solid var(--obwodka); white-space: nowrap;
+}
+td { padding: .6rem 1.15rem; border-bottom: 1px solid var(--obwodka); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr.najtaniej { background: var(--akcent-tlo); }
+tr.nieaktualna td { color: var(--tekst-slaby); }
+.portal { font-weight: 600; }
+.cena { font-weight: 700; white-space: nowrap; }
+.cena small { display: block; font-weight: 400; font-size: .75rem; color: var(--tekst-slaby); }
+.termin { white-space: nowrap; }
+.spadek { color: var(--spadek); font-weight: 600; }
+.wzrost { color: var(--wzrost); font-weight: 600; }
+.bez-zmian { color: var(--tekst-slaby); }
+.odznaka {
+  display: inline-block; padding: .05rem .4rem; border-radius: .35rem;
+  background: var(--akcent); color: #fff; font-size: .65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .05em; vertical-align: .1em;
+}
+@media (prefers-color-scheme: dark) { .odznaka { color: #12171f; } }
+.odznaka-minimum {
+  background: none; color: var(--akcent); border: 1px solid var(--akcent); padding: 0 .35rem;
+}
+@media (prefers-color-scheme: dark) { .odznaka-minimum { color: var(--akcent); } }
+tr.alternatywa td {
+  padding-top: 0; padding-bottom: .55rem; padding-left: 2.15rem;
+  font-size: .8rem; color: var(--tekst-slaby); border-bottom: none;
+}
+tr.alternatywa + tr:not(.alternatywa) td { border-top: 1px solid var(--obwodka); }
+.pusto { padding: 1rem 1.15rem; color: var(--tekst-slaby); }
+
+.archiwum { list-style: none; margin: 0; padding: 0; }
+.archiwum li { border-bottom: 1px solid var(--obwodka); }
+.archiwum a {
+  display: flex; justify-content: space-between; gap: 1rem;
+  padding: .7rem .25rem; text-decoration: none; color: var(--tekst);
+}
+.archiwum a:hover { color: var(--akcent); }
+.archiwum .godzina { color: var(--tekst-slaby); font-variant-numeric: tabular-nums; }
+
+footer {
+  margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--obwodka);
+  font-size: .8rem; color: var(--tekst-slaby);
+}
+footer a { color: var(--tekst-slaby); }
+
+@media (max-width: 40rem) {
+  h1 { font-size: 1.45rem; }
+  thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  tr { display: block; }
+  tr:not(.alternatywa) { padding: .35rem 0; border-bottom: 1px solid var(--obwodka); }
+  tr:not(.alternatywa):last-child { border-bottom: none; }
+  td { display: flex; gap: 1rem; justify-content: space-between; align-items: baseline;
+       padding: .2rem 1.15rem; border-bottom: none; text-align: right; }
+  td::before {
+    content: attr(data-etykieta); text-align: left; flex: 0 0 auto;
+    font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--tekst-slaby);
+  }
+  td.pelna-szerokosc { display: block; text-align: left; }
+  td.pelna-szerokosc::before { content: none; }
+  td.portal {
+    display: block; text-align: left; padding-bottom: .35rem; font-size: 1rem;
+  }
+  td.portal::before { content: none; }
+  .cena small { display: inline; margin-left: .35rem; }
+}
+</style>
+</head>
+<body>
+<div class="strona">
+<header>
+<div class="marka">🏖️ Hot &amp; Sun</div>
+<h1>Ceny obserwowanych hoteli</h1>
+<p class="kiedy">Raport z 5 września 2026, 05:01</p>
+<p class="kryteria">2 os. · WAW · All Inclusive · 7–9 dni · wylot za 7–61 dni</p>
+</header>
+<section class="kafle"><div class="kafel"><span class="liczba">7</span><span class="etykieta">hoteli</span></div><div class="kafel"><span class="liczba">3 013 zł</span><span class="etykieta">najtaniej za osobę</span></div><div class="kafel"><span class="liczba">0</span><span class="etykieta">w historycznym minimum</span></div><div class="kafel"><span class="liczba">5</span><span class="etykieta">portali</span></div></section>
+<main>
+<article class="hotel"><div class="hotel-naglowek"><div><h2>Novotel Marsa Alam Resort</h2><p class="hotel-meta">★★★★★ · Egipt · Marsa el Alam · ocena 9,8/10 · All Inclusive</p></div><div class="hotel-cena">3 013 zł<small> / os.</small></div></div><table><thead><tr><th>Portal</th><th>Cena / os.</th><th>Termin</th><th>Zmiana</th><th>Minimum</th></tr></thead><tbody><tr class="najtaniej"><td class="portal" data-etykieta="Portal"><a href="https://www.wakacje.pl/oferty/egipt/marsa-el-alam/novotel-marsa-alam-795031.html?od-2026-09-12,7-dni,all-inclusive,z-warszawy-chopin" rel="noopener">Wakacje.pl</a> <span class="odznaka">najtaniej</span> <small>· 8 ofert</small></td><td class="cena" data-etykieta="Cena / os.">3 013 zł<small>2 os. = 6 026 zł</small></td><td class="termin" data-etykieta="Termin">12.09 – 19.09.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 013 zł</td></tr><tr class="alternatywa najtaniej"><td colspan="5" class="pelna-szerokosc">↳ też 3 059 zł / os. · 12.09 – 20.09.2026 (9 dni)</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.exim.pl/kierunki/egipt/marsa-alam/el-quseir/novotel-marsa-alam" rel="noopener">Exim Tours</a> <small>· 50 ofert</small></td><td class="cena" data-etykieta="Cena / os.">3 059 zł<small>2 os. = 6 118 zł</small></td><td class="termin" data-etykieta="Termin">12.09 – 20.09.2026 (9 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 059 zł</td></tr><tr class="alternatywa "><td colspan="5" class="pelna-szerokosc">↳ też 3 209 zł / os. · 12.09 – 20.09.2026 (9 dni)</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.tui.pl/wypoczynek/egipt/marsa-alam/novotel-marsa-alam-rmf18009/OfferCodeWS/WAWRMF20261031202020261031202611071930L07RMF18009DZX1AA02ROADZX1A02FCYY" rel="noopener">TUI</a></td><td class="cena" data-etykieta="Cena / os.">3 139 zł<small>2 os. = 6 278 zł</small></td><td class="termin" data-etykieta="Termin">31.10 – 07.11.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 139 zł</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.itaka.pl/wczasy/egipt/marsa-alam/hotel-novotel-marsa-alam,RMFNOVO/?airports=WAW&amp;id%5B0%5D=CgVJdGFrYRIEVklUWBoDUExOIgdSTUZOT1ZPKAQ6BEwyNDRCBgiAltzVBkoGCICLgdYGUAJiBQoDV0FXagUKA1JNRnIDCgEzegUKA1JNRoIBBQoDV0FXigEDCgEzkgEGCICW3NUGmgEGCICLgdYGogEFCgNEVlCqAQMKAUHiAQkKB1Jlc2FiZWXqAQkKB1Jlc2FiZWXyAQkKB1Jlc2FiZWU%3D&amp;adults%5B0%5D=2" rel="noopener">Itaka</a></td><td class="cena" data-etykieta="Cena / os.">3 499 zł<small>2 os. = 6 998 zł</small></td><td class="termin" data-etykieta="Termin">26.09 – 03.10.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 499 zł</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://r.pl/marsa-alam-wczasy/novotel-marsa-alam-resort?unikalnyKluczOferty=AtELAlouA0SXAwEBA4jjmAEBAlBTAREBAQEBAQEBAQABAgMG7BABAgM%2F7BABAgECAQc%3D&amp;liczbaPokoi=1&amp;czyCenaZaWszystkich=0&amp;wiek=1996-09-05&amp;wiek=1996-09-05" rel="noopener">Rainbow Tours</a></td><td class="cena" data-etykieta="Cena / os.">3 600 zł<small>2 os. = 7 200 zł</small></td><td class="termin" data-etykieta="Termin">26.09 – 04.10.2026 (9 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 600 zł</td></tr></tbody></table></article>
+<article class="hotel"><div class="hotel-naglowek"><div><h2>Jaz Grand Marsa (ex Resta Grand Resort)</h2><p class="hotel-meta">★★★★★ · Egipt · Marsa Alam · ocena 10,0/10 · All Inclusive</p></div><div class="hotel-cena">3 328 zł<small> / os.</small></div></div><table><thead><tr><th>Portal</th><th>Cena / os.</th><th>Termin</th><th>Zmiana</th><th>Minimum</th></tr></thead><tbody><tr class="najtaniej"><td class="portal" data-etykieta="Portal"><a href="https://www.tui.pl/wypoczynek/egipt/marsa-alam/jaz-grand-marsa-rmf18014/OfferCodeWS/WAWRMF20261031202020261031202611071930L07RMF18014DZX2AA02ROADZX2A02FCYY" rel="noopener">TUI</a> <span class="odznaka">najtaniej</span></td><td class="cena" data-etykieta="Cena / os.">3 328 zł<small>2 os. = 6 656 zł</small></td><td class="termin" data-etykieta="Termin">31.10 – 07.11.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 328 zł</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.wakacje.pl/oferty/egipt/marsa-el-alam/madinat-coraya/jaz-grand-marsa-ex-resta-grand-resort-498368.html?od-2026-09-29,7-dni,all-inclusive,z-warszawy-chopin" rel="noopener">Wakacje.pl</a> <small>· 6 ofert</small></td><td class="cena" data-etykieta="Cena / os.">3 461 zł<small>2 os. = 6 922 zł</small></td><td class="termin" data-etykieta="Termin">29.09 – 06.10.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 461 zł</td></tr><tr class="alternatywa "><td colspan="5" class="pelna-szerokosc">↳ też 3 562 zł / os. · 08.10 – 15.10.2026 (8 dni)</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.exim.pl/kierunki/egipt/marsa-alam/el-quseir/jaz-grand-marsa" rel="noopener">Exim Tours</a> <small>· 65 ofert</small></td><td class="cena" data-etykieta="Cena / os.">3 489 zł<small>2 os. = 6 978 zł</small></td><td class="termin" data-etykieta="Termin">31.10 – 07.11.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 489 zł</td></tr><tr class="alternatywa "><td colspan="5" class="pelna-szerokosc">↳ też 3 579 zł / os. · 27.10 – 03.11.2026 (8 dni)</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.itaka.pl/wczasy/egipt/marsa-alam/hotel-jaz-grand-marsa,RMFGRAN/?airports=WAW&amp;id%5B0%5D=CgVJdGFrYRIEVklUWBoDUExOIgdSTUZHUkFOKAQ6BEwyNDVCBgiAi4HWBkoGCICAptYGUAJiBQoDV0FXagUKA1JNRnIDCgE0egUKA1JNRoIBBQoDV0FXigEDCgE0kgEGCICLgdYGmgEGCICAptYGogEFCgNESFOqAQMKAUHiAQkKB1Jlc2FiZWXqAQkKB1Jlc2FiZWXyAQkKB1Jlc2FiZWU%3D&amp;adults%5B0%5D=2" rel="noopener">Itaka</a></td><td class="cena" data-etykieta="Cena / os.">3 899 zł<small>2 os. = 7 798 zł</small></td><td class="termin" data-etykieta="Termin">03.10 – 10.10.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="spadek">−4,9%</span></td><td data-etykieta="Minimum">3 899 zł <span class="odznaka odznaka-minimum">minimum</span></td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://r.pl/marsa-alam-wczasy/jaz-grand-resort-marsa-alam?unikalnyKluczOferty=AjgFAlouA0WXAwEBA%2F7jmAEBAo0hASMBAQEBAQEBAQABAgMQwhABAgPdwRABAgECAQc%3D&amp;liczbaPokoi=1&amp;czyCenaZaWszystkich=0&amp;wiek=1996-09-05&amp;wiek=1996-09-05" rel="noopener">Rainbow Tours</a></td><td class="cena" data-etykieta="Cena / os.">4 120 zł<small>2 os. = 8 240 zł</small></td><td class="termin" data-etykieta="Termin">29.09 – 06.10.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">4 120 zł</td></tr></tbody></table></article>
+<article class="hotel"><div class="hotel-naglowek"><div><h2>Brayka Bay Resort</h2><p class="hotel-meta">★★★★ · Egipt · Marsa Alam · ocena 8,5/10 · All inclusive</p></div><div class="hotel-cena">3 399 zł<small> / os.</small></div></div><table><thead><tr><th>Portal</th><th>Cena / os.</th><th>Termin</th><th>Zmiana</th><th>Minimum</th></tr></thead><tbody><tr class="najtaniej"><td class="portal" data-etykieta="Portal"><a href="https://www.itaka.pl/wczasy/egipt/marsa-alam/hotel-brayka-bay-resort,RMFBRAY/?airports=WAW&amp;id%5B0%5D=CgVJdGFrYRIEVklUWBoDUExOIgdSTUZCUkFZKAQ6BEwyNDRCBgiAltzVBkoGCICLgdYGUAJiBQoDV0FXagUKA1JNRnIDCgE0egUKA1JNRoIBBQoDV0FXigEDCgE0kgEGCICW3NUGmgEGCICLgdYGogEFCgNEQkyqAQMKAUHiAQkKB1Jlc2FiZWXqAQkKB1Jlc2FiZWXyAQkKB1Jlc2FiZWU%3D&amp;adults%5B0%5D=2" rel="noopener">Itaka</a> <span class="odznaka">najtaniej</span></td><td class="cena" data-etykieta="Cena / os.">3 399 zł<small>2 os. = 6 798 zł</small></td><td class="termin" data-etykieta="Termin">26.09 – 03.10.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 399 zł</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.wakacje.pl/oferty/egipt/marsa-el-alam/brayka-bay-resort-412435.html?od-2026-09-26,7-dni,all-inclusive,z-warszawy-chopin" rel="noopener">Wakacje.pl</a></td><td class="cena" data-etykieta="Cena / os.">3 429 zł<small>2 os. = 6 858 zł</small></td><td class="termin" data-etykieta="Termin">26.09 – 03.10.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 429 zł</td></tr></tbody></table></article>
+<article class="hotel"><div class="hotel-naglowek"><div><h2>Reef Oasis Suakin Resort</h2><p class="hotel-meta">★★★★★ · Egipt · Marsa Alam · ocena 9,2/10 · All inclusive</p></div><div class="hotel-cena">3 899 zł<small> / os.</small></div></div><table><thead><tr><th>Portal</th><th>Cena / os.</th><th>Termin</th><th>Zmiana</th><th>Minimum</th></tr></thead><tbody><tr class="najtaniej"><td class="portal" data-etykieta="Portal"><a href="https://www.itaka.pl/wczasy/egipt/marsa-alam/hotel-sentido-reef-oasis-suakin-resort,RMFREEF/?airports=WAW&amp;id%5B0%5D=CgVJdGFrYRIEVklUWBoDUExOIgdSTUZSRUVGKAQ6BEwyNDdCBgiA6PvVBkoGCIDdoNYGUAJiBQoDV0FXagUKA1JNRnIDCgE2egUKA1JNRoIBBQoDV0FXigEDCgE2kgEGCIDo%2B9UGmgEGCIDdoNYGogEFCgNETFiqAQMKAUHiAQkKB1Jlc2FiZWXqAQkKB1Jlc2FiZWXyAQkKB1Jlc2FiZWU%3D&amp;adults%5B0%5D=2" rel="noopener">Itaka</a> <span class="odznaka">najtaniej</span></td><td class="cena" data-etykieta="Cena / os.">3 899 zł<small>2 os. = 7 798 zł</small></td><td class="termin" data-etykieta="Termin">02.10 – 09.10.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 899 zł</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.wakacje.pl/oferty/egipt/marsa-el-alam/reef-oasis-suakin-resort-810970.html?od-2026-10-17,7-dni,all-inclusive,z-warszawy-chopin" rel="noopener">Wakacje.pl</a></td><td class="cena" data-etykieta="Cena / os.">3 929 zł<small>2 os. = 7 858 zł</small></td><td class="termin" data-etykieta="Termin">17.10 – 24.10.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">3 929 zł</td></tr></tbody></table></article>
+<article class="hotel"><div class="hotel-naglowek"><div><h2>Hotel Hilton Marsa Alam Nubian Resort</h2><p class="hotel-meta">★★★★★ · Egipt · Marsa el Alam · ocena 9,6/10 · All Inclusive</p></div><div class="hotel-cena">3 938 zł<small> / os.</small></div></div><table><thead><tr><th>Portal</th><th>Cena / os.</th><th>Termin</th><th>Zmiana</th><th>Minimum</th></tr></thead><tbody><tr class="najtaniej"><td class="portal" data-etykieta="Portal"><a href="https://www.wakacje.pl/oferty/egipt/marsa-el-alam/hilton-marsa-alam-nubian-resort-798073.html?od-2026-09-12,7-dni,all-inclusive,z-warszawy-chopin" rel="noopener">Wakacje.pl</a> <span class="odznaka">najtaniej</span> <small>· 7 ofert</small></td><td class="cena" data-etykieta="Cena / os.">3 938 zł<small>2 os. = 7 875 zł</small></td><td class="termin" data-etykieta="Termin">12.09 – 19.09.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="wzrost">+4,3%</span></td><td data-etykieta="Minimum">3 774 zł</td></tr><tr class="alternatywa najtaniej"><td colspan="5" class="pelna-szerokosc">↳ też 4 039 zł / os. · 12.09 – 20.09.2026 (9 dni)</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.exim.pl/kierunki/egipt/marsa-alam/marsa-alam/hilton-nubian-marsa-allam" rel="noopener">Exim Tours</a> <small>· 68 ofert</small></td><td class="cena" data-etykieta="Cena / os.">4 039 zł<small>2 os. = 8 078 zł</small></td><td class="termin" data-etykieta="Termin">12.09 – 20.09.2026 (9 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">4 039 zł</td></tr><tr class="alternatywa "><td colspan="5" class="pelna-szerokosc">↳ też 4 189 zł / os. · 12.09 – 20.09.2026 (9 dni)</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.tui.pl/wypoczynek/egipt/marsa-alam/hilton-marsa-alam-nubian-resort-rmf18050/OfferCodeWS/WAWRMF20261031202020261031202611071930L07RMF18050DZX1AA02ROADZX1A02FCYY" rel="noopener">TUI</a></td><td class="cena" data-etykieta="Cena / os.">4 173 zł<small>2 os. = 8 346 zł</small></td><td class="termin" data-etykieta="Termin">31.10 – 07.11.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">4 173 zł</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://r.pl/marsa-alam-wczasy/hilton-nubian?unikalnyKluczOferty=AjcFAlouA0SXAwEBA4HjmAEBAgkfARwBAQEBAQEBAQABAgMG7BABAgM%2F7BABAgECAQc%3D&amp;liczbaPokoi=1&amp;czyCenaZaWszystkich=0&amp;wiek=1996-09-05&amp;wiek=1996-09-05" rel="noopener">Rainbow Tours</a></td><td class="cena" data-etykieta="Cena / os.">4 482 zł<small>2 os. = 8 964 zł</small></td><td class="termin" data-etykieta="Termin">26.09 – 04.10.2026 (9 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">4 482 zł</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.itaka.pl/wczasy/egipt/marsa-alam/hotel-hilton-marsa-alam-nubian-resort,RMFHILG/?airports=WAW&amp;id%5B0%5D=CgVJdGFrYRIEVklUWBoDUExOIgdSTUZISUxHKAQ6BFo2MTBCBgiA35TXBkoGCIDUudcGUAJiBQoDV0FXagUKA1JNRnIDCgEzegUKA1JNRoIBBQoDV0FXigEDCgEzkgEGCIDflNcGmgEGCIDUudcGogEFCgNEQkyqAQMKAUHiAQkKB1Jlc2FiZWXqAQkKB1Jlc2FiZWXyAQkKB1Jlc2FiZWU%3D&amp;adults%5B0%5D=2" rel="noopener">Itaka</a></td><td class="cena" data-etykieta="Cena / os.">4 799 zł<small>2 os. = 9 598 zł</small></td><td class="termin" data-etykieta="Termin">31.10 – 07.11.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">4 799 zł</td></tr></tbody></table></article>
+<article class="hotel"><div class="hotel-naglowek"><div><h2>Jaz Elite Maraya</h2><p class="hotel-meta">★★★★★ · Egipt · Marsa el Alam · ocena 9,8/10 · All Inclusive</p></div><div class="hotel-cena">4 169 zł<small> / os.</small></div></div><table><thead><tr><th>Portal</th><th>Cena / os.</th><th>Termin</th><th>Zmiana</th><th>Minimum</th></tr></thead><tbody><tr class="najtaniej"><td class="portal" data-etykieta="Portal"><a href="https://www.wakacje.pl/oferty/egipt/marsa-el-alam/jaz-elite-maraya-1093740.html?od-2026-09-12,7-dni,all-inclusive,z-warszawy-chopin" rel="noopener">Wakacje.pl</a> <span class="odznaka">najtaniej</span> <small>· 2 oferty</small></td><td class="cena" data-etykieta="Cena / os.">4 169 zł<small>2 os. = 8 338 zł</small></td><td class="termin" data-etykieta="Termin">12.09 – 20.09.2026 (9 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">4 169 zł</td></tr><tr class="alternatywa najtaniej"><td colspan="5" class="pelna-szerokosc">↳ też 4 378 zł / os. · 15.09 – 22.09.2026 (8 dni)</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.tui.pl/wypoczynek/egipt/marsa-alam/jaz-elite-maraya-resort-rmf18072/OfferCodeWS/WAWRMF20261031202020261031202611071930L07RMF18072FZX1AA02ROAFZX1A02FCYY" rel="noopener">TUI</a></td><td class="cena" data-etykieta="Cena / os.">4 522 zł<small>2 os. = 9 044 zł</small></td><td class="termin" data-etykieta="Termin">31.10 – 07.11.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">4 522 zł</td></tr></tbody></table></article>
+<article class="hotel"><div class="hotel-naglowek"><div><h2>JAZ COSTA MARES</h2><p class="hotel-meta">★★★★★ · Egipt · Marsa Alam · ocena 10,0/10 · All Inclusive</p></div><div class="hotel-cena">6 148 zł<small> / os.</small></div></div><table><thead><tr><th>Portal</th><th>Cena / os.</th><th>Termin</th><th>Zmiana</th><th>Minimum</th></tr></thead><tbody><tr class="najtaniej"><td class="portal" data-etykieta="Portal"><a href="https://www.tui.pl/wypoczynek/egipt/marsa-alam/jaz-costa-mares-rmf18024/OfferCodeWS/WAWRMF20261024212020261024202611010255L07RMF18024FZX1AA02ROAFZX1A02FCYY" rel="noopener">TUI</a> <span class="odznaka">najtaniej</span></td><td class="cena" data-etykieta="Cena / os.">6 148 zł<small>2 os. = 12 296 zł</small></td><td class="termin" data-etykieta="Termin">24.10 – 01.11.2026 (9 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">6 148 zł</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.wakacje.pl/oferty/egipt/marsa-el-alam/port-ghalib/jaz-costa-mares-1061413.html?od-2026-10-27,7-dni,all-inclusive,z-warszawy-chopin" rel="noopener">Wakacje.pl</a> <small>· 2 oferty</small></td><td class="cena" data-etykieta="Cena / os.">6 599 zł<small>2 os. = 13 198 zł</small></td><td class="termin" data-etykieta="Termin">27.10 – 03.11.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">6 599 zł</td></tr><tr class="alternatywa "><td colspan="5" class="pelna-szerokosc">↳ też 6 930 zł / os. · 29.10 – 05.11.2026 (8 dni)</td></tr><tr><td class="portal" data-etykieta="Portal"><a href="https://www.exim.pl/kierunki/egipt/marsa-alam/marsa-alam/iberotel-costa-mares" rel="noopener">Exim Tours</a> <small>· 5 ofert</small></td><td class="cena" data-etykieta="Cena / os.">6 599 zł<small>2 os. = 13 198 zł</small></td><td class="termin" data-etykieta="Termin">27.10 – 03.11.2026 (8 dni)</td><td data-etykieta="Zmiana"><span class="bez-zmian">—</span></td><td data-etykieta="Minimum">6 599 zł</td></tr><tr class="alternatywa "><td colspan="5" class="pelna-szerokosc">↳ też 7 239 zł / os. · 27.10 – 03.11.2026 (8 dni)</td></tr></tbody></table></article>
+</main>
+<footer><p>Wygenerowano automatycznie 05.09.2026 05:01. <a href="raporty/index.html">Wcześniejsze raporty →</a></p><p>Ceny za osobę, z przelotem, tak jak podaje je portal w chwili skanu. Dostępność i cena końcowa zawsze do sprawdzenia u organizatora.</p></footer>
+</div>
+</body></html>

@@ -1,0 +1,64 @@
+# Plik generowany przez wakacje-tracker (moduł `wakacje.publikacja`).
+# Raporty buduje i wypycha malina — tutaj tylko sprawdzamy, czy to, co przyjechało,
+# nadaje się do serwowania przez GitHub Pages.
+name: Walidacja raportów
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  waliduj:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sprawdź strony i indeks archiwum
+        run: |
+          python3 - <<'PY'
+          import pathlib, re, sys
+
+          KATALOG = pathlib.Path("raporty")
+          WZORZEC = re.compile(r"^\d{4}-\d{2}-\d{2}-\d{4}\.html$")
+          bledy = []
+
+          def sprawdz_strone(sciezka):
+              if not sciezka.is_file():
+                  bledy.append(f"brakuje pliku {sciezka}")
+                  return None
+              tresc = sciezka.read_text(encoding="utf-8", errors="replace")
+              if len(tresc) < 200:
+                  bledy.append(f"{sciezka}: strona podejrzanie krótka ({len(tresc)} znaków)")
+              if not tresc.lstrip().lower().startswith("<!doctype html"):
+                  bledy.append(f"{sciezka}: brak deklaracji <!doctype html>")
+              for znacznik in ("<title>", "</html>"):
+                  if znacznik not in tresc:
+                      bledy.append(f"{sciezka}: brak {znacznik}")
+              return tresc
+
+          sprawdz_strone(pathlib.Path("index.html"))
+          indeks = sprawdz_strone(KATALOG / "index.html")
+
+          raporty = sorted(p for p in KATALOG.glob("*.html") if p.name != "index.html")
+          if not raporty:
+              bledy.append(f"katalog {KATALOG} nie zawiera ani jednego raportu")
+          for raport in raporty:
+              if not WZORZEC.match(raport.name):
+                  bledy.append(f"{raport}: nazwa spoza wzorca RRRR-MM-DD-GGMM.html")
+              sprawdz_strone(raport)
+
+          if indeks:
+              nazwy = {p.name for p in raporty}
+              for cel in re.findall(r'<a href="([^"]+)"', indeks):
+                  if cel.endswith(".html") and cel not in nazwy and not cel.startswith(".."):
+                      bledy.append(f"indeks archiwum linkuje do nieistniejącego {cel}")
+
+          print(f"Sprawdzone raporty: {len(raporty)}")
+          for blad in bledy:
+              print(f"::error::{blad}")
+          sys.exit(1 if bledy else 0)
+          PY
